@@ -36,7 +36,7 @@ class MediaPlayerState with ChangeNotifier {
   void playSong(Song data)async{
     _audioPlugin.stop();
     await _audioPlugin.play(data.songPreviewUrl);
-    Future.delayed(Duration(milliseconds: 500)).whenComplete(() =>  _fullDurationSong=_audioPlugin.duration);// even after await, there still delay 0.5 second to get full duration
+    Future.delayed(Duration(milliseconds: 1000)).whenComplete(() =>  _fullDurationSong=_audioPlugin.duration);// even after await, there still delay 0.5 second to get full duration
     _currentlyPlayedSong=data;
     notifyListeners();
   }
